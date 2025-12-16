@@ -1,8 +1,11 @@
 /**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
+ * Homepage Styles - Sci-Fi Robotics Theme
+ * CSS modules with .module.css suffix are scoped locally
  */
 
+/* ============================================
+   HERO BANNER - Base Container
+   ============================================ */
 .heroBanner {
   padding: 4rem 0;
   text-align: center;
@@ -12,12 +15,250 @@
 
 @media screen and (max-width: 996px) {
   .heroBanner {
-    padding: 2rem;
+    padding: 3rem 1.5rem;
   }
 }
 
+@media screen and (max-width: 576px) {
+  .heroBanner {
+    padding: 2rem 1rem;
+  }
+}
+
+/* ============================================
+   HERO BADGE - Tech Stack Pill
+   ============================================ */
+.heroBadge {
+  display: inline-block;
+  padding: 0.5rem 1.5rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ifm-color-primary-light, #00d8bf);
+  background: rgba(0, 212, 190, 0.08);
+  border: 1px solid var(--ifm-color-primary-dark, #009584);
+  border-radius: 50px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.3s ease;
+}
+
+.heroBadge:hover {
+  background: rgba(0, 212, 190, 0.15);
+  border-color: var(--ifm-color-primary-light, #00d8bf);
+  box-shadow: 0 0 20px rgba(0, 212, 190, 0.3);
+}
+
+/* ============================================
+   HERO TITLE
+   ============================================ */
+.heroTitle {
+  margin-bottom: 1.25rem;
+  line-height: 1.1;
+}
+
+.heroTitleAccent {
+  display: inline-block;
+  color: var(--ifm-color-primary-lightest, #00d8bf);
+  text-shadow:
+    0 0 20px rgba(0, 212, 190, 0.6),
+    0 0 40px rgba(0, 212, 190, 0.4),
+    0 0 60px rgba(0, 212, 190, 0.2);
+  animation: accentGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes accentGlow {
+  0% {
+    text-shadow:
+      0 0 20px rgba(0, 212, 190, 0.5),
+      0 0 40px rgba(0, 212, 190, 0.3);
+  }
+  100% {
+    text-shadow:
+      0 0 30px rgba(0, 212, 190, 0.7),
+      0 0 60px rgba(0, 212, 190, 0.5),
+      0 0 80px rgba(0, 212, 190, 0.3);
+  }
+}
+
+/* ============================================
+   HERO SUBTITLE
+   ============================================ */
+.heroSubtitle {
+  max-width: 650px;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 1.25rem;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+@media screen and (max-width: 576px) {
+  .heroSubtitle {
+    font-size: 1rem;
+  }
+}
+
+/* ============================================
+   HERO BUTTONS
+   ============================================ */
 .buttons {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+  margin-top: 2.5rem;
+}
+
+.heroButtonPrimary {
+  min-width: 180px;
+  position: relative;
+  overflow: hidden;
+}
+
+.heroButtonPrimary::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s ease;
+}
+
+.heroButtonPrimary:hover::after {
+  left: 100%;
+}
+
+.heroButtonSecondary {
+  min-width: 180px;
+}
+
+@media screen and (max-width: 576px) {
+  .buttons {
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .heroButtonPrimary,
+  .heroButtonSecondary {
+    width: 100%;
+    min-width: unset;
+  }
+}
+
+/* ============================================
+   TECH STACK ROW
+   ============================================ */
+.techStack {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 3.5rem;
+  flex-wrap: wrap;
+  padding: 1rem 0;
+}
+
+.techItem {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.75);
+  letter-spacing: 0.03em;
+  transition: color 0.2s ease;
+}
+
+.techItem:hover {
+  color: var(--ifm-color-primary-light, #00d8bf);
+}
+
+.techDivider {
+  color: var(--ifm-color-primary-dark, #009584);
+  opacity: 0.5;
+  font-weight: 300;
+  font-size: 1.1rem;
+}
+
+@media screen and (max-width: 768px) {
+  .techStack {
+    margin-top: 2.5rem;
+    gap: 0.75rem;
+  }
+
+  .techItem {
+    font-size: 0.8rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .techStack {
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-top: 2rem;
+  }
+
+  .techDivider {
+    display: none;
+  }
+
+  .techItem {
+    padding: 0.25rem 0;
+    font-size: 0.75rem;
+  }
+}
+
+/* ============================================
+   LIGHT THEME ADJUSTMENTS
+   ============================================ */
+:global([data-theme='light']) .heroBadge {
+  color: var(--ifm-color-primary, #00A693);
+  background: rgba(0, 166, 147, 0.1);
+  border-color: var(--ifm-color-primary, #00A693);
+}
+
+:global([data-theme='light']) .heroBadge:hover {
+  background: rgba(0, 166, 147, 0.2);
+  box-shadow: 0 0 15px rgba(0, 166, 147, 0.3);
+}
+
+:global([data-theme='light']) .heroTitleAccent {
+  color: var(--ifm-color-primary-dark, #009584);
+  text-shadow: none;
+  animation: none;
+}
+
+:global([data-theme='light']) .techItem {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+:global([data-theme='light']) .techItem:hover {
+  color: #ffffff;
+}
+
+:global([data-theme='light']) .techDivider {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* ============================================
+   REDUCED MOTION - Accessibility
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  .heroTitleAccent {
+    animation: none;
+  }
+
+  .heroButtonPrimary::after {
+    display: none;
+  }
 }

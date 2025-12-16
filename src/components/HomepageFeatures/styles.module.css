@@ -1,11 +1,160 @@
+/**
+ * Homepage Features - Sci-Fi Robotics Theme
+ */
+
+/* ============================================
+   FEATURES SECTION CONTAINER
+   ============================================ */
 .features {
   display: flex;
   align-items: center;
-  padding: 2rem 0;
+  padding: 4rem 0;
   width: 100%;
+  background: linear-gradient(180deg, transparent 0%, rgba(0, 166, 147, 0.03) 100%);
 }
 
-.featureSvg {
-  height: 200px;
-  width: 200px;
+/* ============================================
+   SECTION HEADER
+   ============================================ */
+.sectionHeader {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.sectionTitle {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--ifm-font-color-base);
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.02em;
+}
+
+.sectionSubtitle {
+  font-size: 1.1rem;
+  color: var(--ifm-font-color-secondary);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+/* ============================================
+   FEATURE ICON STYLES
+   ============================================ */
+.featureIconWrapper {
+  margin-bottom: 1.5rem;
+}
+
+.featureIcon {
+  height: 80px;
+  width: 80px;
+  color: var(--ifm-color-primary);
+  transition: all 0.3s ease;
+  filter: drop-shadow(0 0 0 transparent);
+}
+
+.featureIconWrapper:hover .featureIcon {
+  color: var(--ifm-color-primary-light);
+  transform: translateY(-4px) scale(1.05);
+  filter: drop-shadow(0 4px 20px rgba(0, 166, 147, 0.4));
+}
+
+/* ============================================
+   FEATURE CARD STYLES
+   ============================================ */
+.featureTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--ifm-font-color-base);
+  margin-bottom: 0.75rem;
+  transition: color 0.2s ease;
+}
+
+.featureDescription {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--ifm-font-color-secondary);
+}
+
+.featureDescription strong {
+  color: var(--ifm-color-primary);
+  font-weight: 600;
+}
+
+/* ============================================
+   DARK THEME ENHANCEMENTS
+   ============================================ */
+:global([data-theme='dark']) .features {
+  background: linear-gradient(180deg, transparent 0%, rgba(0, 212, 190, 0.05) 100%);
+}
+
+:global([data-theme='dark']) .featureIcon {
+  color: var(--ifm-color-primary-light);
+}
+
+:global([data-theme='dark']) .featureIconWrapper:hover .featureIcon {
+  color: var(--ifm-color-primary-lightest);
+  filter: drop-shadow(0 4px 25px rgba(0, 212, 190, 0.5));
+}
+
+:global([data-theme='dark']) .sectionTitle {
+  background: linear-gradient(90deg, #ffffff 0%, var(--ifm-color-primary-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+:global([data-theme='dark']) .featureDescription strong {
+  color: var(--ifm-color-primary-light);
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================ */
+@media screen and (max-width: 996px) {
+  .features {
+    padding: 3rem 1rem;
+  }
+
+  .sectionHeader {
+    margin-bottom: 2rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.75rem;
+  }
+
+  .featureIcon {
+    height: 64px;
+    width: 64px;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .features {
+    padding: 2rem 0.5rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.5rem;
+  }
+
+  .sectionSubtitle {
+    font-size: 1rem;
+  }
+
+  .featureTitle {
+    font-size: 1.1rem;
+  }
+
+  .featureDescription {
+    font-size: 0.9rem;
+  }
+}
+
+/* ============================================
+   REDUCED MOTION
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  .featureIconWrapper:hover .featureIcon {
+    transform: none;
+  }
 }

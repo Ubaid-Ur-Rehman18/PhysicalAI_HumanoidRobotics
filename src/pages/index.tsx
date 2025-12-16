@@ -12,17 +12,48 @@ function HomepageHeader() {
   const {siteConfig} = useDocusaurusContext();
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
+      {/* Decorative floating glow orbs */}
+      <div className="hero__decoration hero__decoration--1" aria-hidden="true" />
+      <div className="hero__decoration hero__decoration--2" aria-hidden="true" />
+
       <div className="container">
-        <Heading as="h1" className="hero__title">
-          {siteConfig.title}
+        {/* Subtitle badge */}
+        <span className={styles.heroBadge}>
+          ROS2 • Isaac Sim • URDF • Physics
+        </span>
+
+        {/* Main title */}
+        <Heading as="h1" className={clsx('hero__title', styles.heroTitle)}>
+          Physical AI &amp;<br />
+          <span className={styles.heroTitleAccent}>Humanoid Robotics</span>
         </Heading>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
+
+        {/* Tagline */}
+        <p className={clsx('hero__subtitle', styles.heroSubtitle)}>
+          {siteConfig.tagline}
+        </p>
+
+        {/* CTA Buttons */}
         <div className={styles.buttons}>
           <Link
-            className="button button--secondary button--lg"
+            className={clsx('button button--primary button--lg', styles.heroButtonPrimary)}
             to="/docs/intro">
-            Docusaurus Tutorial - 5min ⏱️
+            Get Started
           </Link>
+          <Link
+            className={clsx('button button--secondary button--lg', styles.heroButtonSecondary)}
+            to="/docs/chapters/chapter1-ros2-foundations">
+            Explore Tutorials
+          </Link>
+        </div>
+
+        {/* Tech stack icons row */}
+        <div className={styles.techStack}>
+          <span className={styles.techItem}>ROS2 Humble</span>
+          <span className={styles.techDivider}>|</span>
+          <span className={styles.techItem}>NVIDIA Isaac Sim</span>
+          <span className={styles.techDivider}>|</span>
+          <span className={styles.techItem}>Python &amp; C++</span>
         </div>
       </div>
     </header>
@@ -30,11 +61,10 @@ function HomepageHeader() {
 }
 
 export default function Home(): ReactNode {
-  const {siteConfig} = useDocusaurusContext();
   return (
     <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
+      title="Physical AI & Humanoid Robotics"
+      description="Learn to build intelligent humanoid robots with ROS2, URDF, Isaac Sim, and physics simulation. Comprehensive tutorials for robotics developers.">
       <HomepageHeader />
       <main>
         <HomepageFeatures />

@@ -1,0 +1,26 @@
+{
+  "sidebar.tutorialSidebar.category.Chapters": {
+    "message": "ابواب",
+    "description": "The label for the Chapters category in the sidebar"
+  },
+  "sidebar.tutorialSidebar.doc.Chapter 1: ROS 2 & URDF Introduction": {
+    "message": "باب 1: آر او ایس 2 اور یو آر ڈی ایف کا تعارف",
+    "description": "The label for Chapter 1 document in the sidebar"
+  },
+  "sidebar.tutorialSidebar.doc.Chapter 2: URDF Fundamentals": {
+    "message": "باب 2: یو آر ڈی ایف کے بنیادی اصول",
+    "description": "The label for Chapter 2 document in the sidebar"
+  },
+  "sidebar.tutorialSidebar.doc.Chapter 3: Isaac Sim": {
+    "message": "باب 3: آئزک سم",
+    "description": "The label for Chapter 3 document in the sidebar"
+  },
+  "sidebar.tutorialSidebar.doc.Chapter 4: Physics Simulation": {
+    "message": "باب 4: فزکس سمولیشن",
+    "description": "The label for Chapter 4 document in the sidebar"
+  },
+  "version.label": {
+    "message": "موجودہ",
+    "description": "The label for version current"
+  }
+}
