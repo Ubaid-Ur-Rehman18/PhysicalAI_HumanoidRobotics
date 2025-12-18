@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import styles from './styles.module.css';
 
 // Types
@@ -11,8 +12,6 @@ interface Message {
   contextUsed?: string;
 }
 
-// Backend URL
-const API_URL = 'http://localhost:8000';
 
 // SVG Icons
 const SparkleIcon = () => (
@@ -72,6 +71,9 @@ const renderMarkdown = (text: string): React.ReactNode[] => {
 };
 
 export default function ChatBot(): JSX.Element {
+  const { siteConfig } = useDocusaurusContext();
+  const API_URL = (siteConfig.customFields?.backendUrl as string) || 'http://localhost:8000';
+
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');

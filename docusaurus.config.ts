@@ -9,6 +9,11 @@ const config: Config = {
   tagline: 'Learn, Build, and Explore the Future of Intelligent Machines',
   favicon: 'img/favicon.ico',
 
+  // Custom fields for environment variables
+  customFields: {
+    backendUrl: process.env.BACKEND_URL || 'http://localhost:8000',
+  },
+
   // Future flags
   future: {
     v4: true,
